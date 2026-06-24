@@ -122,7 +122,7 @@ LIMIT 6
                     <div style="position:relative">
 
                         <img
-                            src="<?php echo !empty($product['home_image']) ? 'assets/uploads/products/'.$product['home_image'] : 'assets/logo/logo.png'; ?>"
+                            src="<?php echo !empty($product['home_image']) ? 'assets/uploads/products/'.$product['home_image'] : (!empty($product['image']) ? 'assets/uploads/products/'.$product['image'] : 'assets/logo/logo.png'); ?>"
                             alt="<?php echo $product['name']; ?>">
 
                         <span
@@ -143,13 +143,13 @@ LIMIT 6
 
                         <h3>
 
-                            <?php echo $product['home_name']; ?>
+                            <?php echo !empty($product['home_name']) ? $product['home_name'] : $product['name']; ?>
 
                         </h3>
 
                         <p>
 
-                            <?php echo $product['home_desc']; ?>
+                            <?php echo !empty($product['home_desc']) ? $product['home_desc'] : $product['short_description']; ?>
 
                         </p>
 
